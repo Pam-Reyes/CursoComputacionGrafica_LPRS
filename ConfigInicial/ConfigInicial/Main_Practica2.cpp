@@ -91,11 +91,93 @@ int main() {
 		-0.78f,  -0.2f, 0.0f,    1.0f,1.0f,0.0f,//18
 		-0.76f,  -0.38f, 0.0f,    1.0f,1.0f,0.0f,//19
 		-0.74f,  -0.5f, 0.0f,    1.0f,1.0f,0.0f,//20
-		-0.7f,  -0.61f, 0.0f,    1.0f,1.0f,1.0f,//21
+		-0.7f,  -0.61f, 0.0f,    1.0f,1.0f,0.0f,//21
+
+		//vertices interiores
+		-0.38f,  0.40f, 0.0f,   1.0f,1.0f,1.0f, //25
+		-0.20f,  0.28f, 0.0f,   1.0f,1.0f,1.0f, //26
+		 0.05f,  0.25f, 0.0f,   1.0f,1.0f,1.0f, //27
+		 0.22f,  0.18f, 0.0f,   1.0f,1.0f,1.0f, //28
+
+		-0.52f,  0.18f, 0.0f,   1.0f,1.0f,1.0f, //29
+		-0.34f,  0.08f, 0.0f,   1.0f,1.0f,1.0f, //30
+		-0.10f,  0.08f, 0.0f,   1.0f,1.0f,1.0f, //31
+		 0.12f,  0.02f, 0.0f,   1.0f,1.0f,1.0f, //32
+		 0.28f, -0.02f, 0.0f,   1.0f,1.0f,1.0f, //33
+
+		-0.62f, -0.02f, 0.0f,   1.0f,1.0f,1.0f, //34
+		-0.42f, -0.12f, 0.0f,   1.0f,1.0f,1.0f, //35
+		-0.20f, -0.12f, 0.0f,   1.0f,1.0f,1.0f, //36
+		 0.00f, -0.18f, 0.0f,   1.0f,1.0f,1.0f, //37
+		 0.20f, -0.18f, 0.0f,   1.0f,1.0f,1.0f, //38
+
+		-0.68f, -0.30f, 0.0f,   1.0f,1.0f,1.0f, //39
+		-0.50f, -0.28f, 0.0f,   1.0f,1.0f,1.0f, //40
+		-0.32f, -0.30f, 0.0f,   1.0f,1.0f,1.0f, //41
+		-0.12f, -0.35f, 0.0f,   1.0f,1.0f,1.0f, //42
+		 0.10f, -0.35f, 0.0f,   1.0f,1.0f,1.0f, //43
+
+		-0.62f, -0.45f, 0.0f,   1.0f,1.0f,1.0f, //44
+		-0.42f, -0.48f, 0.0f,   1.0f,1.0f,1.0f, //45
+		-0.25f, -0.50f, 0.0f,   1.0f,1.0f,1.0f, //46
+
+		-0.62f, -0.62f, 0.0f,   1.0f,1.0f,1.0f, //47
+		-0.48f, -0.65f, 0.0f,   1.0f,1.0f,1.0f, //48
+		-0.35f, -0.65f, 0.0f,   1.0f,1.0f,1.0f, //49
 	};
 	unsigned int indices[] = {  // note that we start from 0!
-		3,2,1,// second Triangle
-		0,1,3,
+		// Parte superior
+		12, 21, 11,
+		11, 21, 22,
+		21, 24, 22,
+		22, 24, 25,
+
+		// Parte superior izquierda
+		12, 24, 13,
+		24, 25, 13,
+		25, 28, 13,
+
+		// Zona superior central
+		22, 23, 24,
+		23, 26, 24,
+		24, 26, 25,
+
+		// Zona central
+		25, 26, 29,
+		26, 30, 29,
+		26, 27, 30,
+		27, 31, 30,
+
+		// Parte derecha superior
+		10, 32, 9,
+		9, 32, 33,
+		10, 27, 32,
+		10, 11, 27,
+		11, 23, 27,
+
+		// Parte derecha central
+		27, 28, 32,
+		28, 33, 32,
+		28, 10, 27,
+
+		// Parte central inferior
+		30, 35, 36,
+		30, 29, 35,
+		29, 34, 35,
+		34, 16, 17,
+		34, 17, 35,
+
+		// Parte inferior central
+		35, 40, 41,
+		35, 41, 36,
+		36, 41, 42,
+		36, 42, 37,
+
+		// Parte derecha inferior
+		37, 42, 43,
+		37, 43, 38,
+		38, 43, 9,
+		38, 33, 9
 
 	};
 
@@ -150,13 +232,16 @@ int main() {
 
 
 		glPointSize(3);
-		glDrawArrays(GL_POINTS, 0, 100);
+		glDrawArrays(GL_POINTS, 0, 21);
 
-		//glDrawArrays(GL_LINES, 0, 4);
-		//glDrawArrays(GL_LINE_LOOP,0,4);
+		//glDrawArrays(GL_LINES, 0, 49);
+		glDrawArrays(GL_LINE_LOOP,0,21);
 
-		//glDrawArrays(GL_TRIANGLES, 1, 3);
-		//glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
+		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+		//glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
+
+		//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 
 
