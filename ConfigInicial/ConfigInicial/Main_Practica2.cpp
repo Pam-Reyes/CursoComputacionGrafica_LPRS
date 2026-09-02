@@ -286,16 +286,29 @@ int main() {
 		glBindVertexArray(VAO);
 
 
-		glPointSize(3);
-		glDrawArrays(GL_POINTS, 0, 45);
-		glDrawArrays(GL_LINE_LOOP, 0, 21);//dibujar contorno
+		//glPointSize(3);
+		//glDrawArrays(GL_POINTS, 0, 45);
+		//glDrawArrays(GL_LINE_LOOP, 0, 21);//dibujar contorno
 
 		//glDrawArrays(GL_LINES, 0, 45);
-		//glDrawArrays(GL_LINE_LOOP,21,23);
+		//glDrawArrays(GL_LINE_LOOP,0,45);
 
 		//glDrawArrays(GL_TRIANGLES, 0, 45);
 		//glDrawElements(GL_TRIANGLES, 45,GL_UNSIGNED_INT,0);
 
+
+		glPointSize(3);
+
+		glDrawArrays(GL_POINTS, 0, 45);
+
+		// Contorno del cráneo
+		glDrawArrays(GL_LINE_LOOP, 0, 21);
+
+		// Triángulos
+		glDrawElements(GL_TRIANGLES,
+			sizeof(indices) / sizeof(unsigned int),
+			GL_UNSIGNED_INT,
+			0);
 		
 		glBindVertexArray(0);
 

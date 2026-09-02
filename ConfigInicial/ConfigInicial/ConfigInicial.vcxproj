@@ -26,7 +26,7 @@
     <None Include="Shader\core.vs" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main_Practica2.cpp" />
+    <ClCompile Include="Main_P3.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -86,7 +86,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\External Libraries\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,7 +106,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\External Libraries\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\External Libraries\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLFW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\GLEW\include;C:\Users\Pamela Sanz\source\repos\ConfigInicial\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\External Libraries\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
