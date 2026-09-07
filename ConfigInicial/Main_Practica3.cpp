@@ -216,10 +216,24 @@ int main() {
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		//CUarto cubo - Letra R
+		//Cuarto cubo - Letra R
 		model = glm::mat4(2);
 		model = glm::translate(model, glm::vec3(-11.5f, 6.0f, -10.0f));
 		model = glm::rotate(model, 9.5f, glm::vec3(-2.0f, -16.0f, 15.0f));
+		model = glm::scale(model, glm::vec3(6.0f, 6.0f, 6.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glUniformMatrix4fv(projecLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glBindVertexArray(VAO);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Quiento cubo - Letra A
+		model = glm::mat4(2);
+		model = glm::translate(model, glm::vec3(1.0f, 8.0f, -10.0f));
+		model = glm::rotate(model, 8.5f, glm::vec3(-2.0f, -12.0f, 15.0f));
 		model = glm::scale(model, glm::vec3(6.0f, 6.0f, 6.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
