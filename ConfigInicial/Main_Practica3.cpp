@@ -204,10 +204,19 @@ int main() {
 
 		//Tercer cubo - Letra U
 		model = glm::mat4(2);
-		model = glm::translate(model, glm::vec3(-6.0f, 1.0f, -12.0f));
-		model = glm::rotate(model, 20.0f, glm::vec3(-1.0f, 1.0f, -1.0f));
+		model = glm::translate(model, glm::vec3(-5.0f, 4.0f, -10.0f));
+		model = glm::rotate(model, 5.0f, glm::vec3(-2.0f, -15.0f, 15.0f));
 		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glUniformMatrix4fv(projecLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glBindVertexArray(VAO);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//CUarto cubo - Letra R
 
 
 
