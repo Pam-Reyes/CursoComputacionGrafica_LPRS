@@ -1,1 +1,2 @@
 C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Debug\ConfigInicial.exe
+C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Debug\ConfigInicial.exe
