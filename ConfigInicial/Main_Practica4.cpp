@@ -176,7 +176,7 @@ int main() {
 	//projection = glm::ortho(0.0f, (GLfloat)screenWidth, 0.0f, (GLfloat)screenHeight, 0.1f, 1000.0f);//Izq,Der,Fondo,Alto,Cercania,Lejania
 	while (!glfwWindowShouldClose(window))
 	{
-		
+
 		Inputs(window);
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
 		glfwPollEvents();
@@ -184,16 +184,16 @@ int main() {
 		// Render
 		// Clear the colorbuffer
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
 		// Draw our first triangle
 		ourShader.Use();
-		glm::mat4 model=glm::mat4(1);
-		glm::mat4 view=glm::mat4(1);
-	
+		glm::mat4 model = glm::mat4(1);
+		glm::mat4 view = glm::mat4(1);
 
-		view = glm::translate(view, glm::vec3(movX,movY, movZ));
+
+		view = glm::translate(view, glm::vec3(movX, movY, movZ));
 		view = glm::rotate(view, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
 
 		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
@@ -204,23 +204,23 @@ int main() {
 		glUniformMatrix4fv(projecLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-	
+
 
 		glBindVertexArray(VAO);
-	
-	 //   model = glm::mat4(1.0f);
-		////model = glm:: scale(model, glm:: vec3(3.0f, 0.1f, 2.0f)); //Ancho,grosor, profundidad
-		//model = glm::translate(model, glm::vec3(0.0f, 0.6f, 0.0f));
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		//glDrawArrays(GL_TRIANGLES, 0, 36);
-		
-		//Haciendo el cuerpo
 
-		//Pata 1
+		//   model = glm::mat4(1.0f);
+		   ////model = glm:: scale(model, glm:: vec3(3.0f, 0.1f, 2.0f)); //Ancho,grosor, profundidad
+		   //model = glm::translate(model, glm::vec3(0.0f, 0.6f, 0.0f));
+		   //glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		   //glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		   //Haciendo el cuerpo
+
+		   //Pata 1
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
 		model = glm::translate(model, glm::vec3(-6.0f, -6.0f, -3.0f));
-		model = glm::rotate(model, glm::radians(-90.0f),glm::vec3(0.0f, -1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -237,7 +237,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-		
+
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
 		model = glm::translate(model, glm::vec3(-7.0f, -6.0f, -3.0f));
@@ -306,7 +306,7 @@ int main() {
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
 		model = glm::translate(model, glm::vec3(-6.0f, -3.0f, -3.0f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, -1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -473,6 +473,1614 @@ int main() {
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		//
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -3.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -3.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -2.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -2.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Pechito
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -3.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -3.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -3.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -3.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -2.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -2.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -2.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -2.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Tronco derecho
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -6.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -8.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -9.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -6.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -8.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -9.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -6.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -8.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -9.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//Tronco lado izq
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -6.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -8.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -9.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -6.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -8.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -9.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -6.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -7.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -8.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -9.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		
+		//Patas Traseras
+		//Pata 3 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -4.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -4.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -5.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -5.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -6.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -6.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//interno
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -4.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -4.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -5.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -5.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -6.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -6.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Pata 4
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -4.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -4.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -5.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -5.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -6.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -6.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//interno
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -4.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -4.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -5.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -5.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -6.0f, -11.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -6.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Pompis 
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36); model = glm::mat4(1.0f);
+		
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36); model = glm::mat4(1.0f);
+
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36); model = glm::mat4(1.0f);
+
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36); model = glm::mat4(1.0f);
+
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//cola
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 0.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 0.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 1.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 2.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 3.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 4.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 4.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 5.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 5.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 6.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 6.0f, -12.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//Cabeza
+
+		//cachete izq (viendo de frente)
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, -1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, -1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 2.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 2.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 3.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 3.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-8.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//nuca
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model,glm::vec3(-7.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, -1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 0.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 1.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 2.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 3.0f, -5.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//cachete derecho (viendo de frente)
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, -1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 0.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 1.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 2.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 3.0f, -4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, -1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 0.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 1.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 2.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 3.0f, -3.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-1.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//contorno cara (abajo y arriba)
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, -1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 3.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//ojos
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Entre los ojos
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-4.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 1.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 2.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-5.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-6.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-7.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));//para que el cubo se vea más pequeño
+		model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -2.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //Para poder rotar el cubo en el angulo necesario para ver el color que se usara
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		
+		
+
 		
 
 
