@@ -19,14 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\core.frag" />
-    <None Include="Shader\core.vs" />
+    <ClCompile Include="Carga de Modelos.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Modelado_Jerarquico_Previo5.cpp" />
+    <None Include="Shader\modelLoading.frag" />
+    <None Include="Shader\modelLoading.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -86,13 +87,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/External Libraries/glm;$(SolutionDir)/External Libraries/GLFW/include;$(SolutionDir)/External Libraries/GLEW/include;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;%(AdditionalIncludeDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/External Libraries/glm;$(SolutionDir)/External Libraries/GLFW/include;$(SolutionDir)/External Libraries/GLEW/include;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;%(AdditionalIncludeDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;$(SolutionDir)/External Libraries/assimp/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)/External Libraries/GLFW/lib-vc2015;$(SolutionDir)/External Libraries/GLEW/lib/Release/Win32;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;%(AdditionalLibraryDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)/External Libraries/GLFW/lib-vc2015;$(SolutionDir)/External Libraries/GLEW/lib/Release/Win32;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;%(AdditionalLibraryDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;$(SolutionDir)/External Libraries/SOIL2/lib;$(SolutionDir)/External Libraries/assimp/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;assimp-vc140-mt.lib;soil2-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
@@ -106,13 +107,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/External Libraries/glm;$(SolutionDir)/External Libraries/GLFW/include;$(SolutionDir)/External Libraries/GLEW/include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\External Libraries\glm;%(AdditionalIncludeDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/External Libraries/glm;$(SolutionDir)/External Libraries/GLFW/include;$(SolutionDir)/External Libraries/GLEW/include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\include;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\External Libraries\glm;%(AdditionalIncludeDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;$(SolutionDir)/External Libraries/assimp/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)/External Libraries/GLFW/lib-vc2015;$(SolutionDir)/External Libraries/GLEW/lib/Release/Win32;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;%(AdditionalLibraryDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)/External Libraries/GLFW/lib-vc2015;$(SolutionDir)/External Libraries/GLEW/lib/Release/Win32;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLFW\lib-vc2015;C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\GLEW\lib\Release\Win32;%(AdditionalLibraryDirectories);C:\Users\CGIH7\Documents\GitHub\CursoComputacionGrafica_LPRS\External Libraries\glm;$(SolutionDir)/External Libraries/SOIL2/lib;$(SolutionDir)/External Libraries/assimp/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;assimp-vc140-mt.lib;soil2-debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
