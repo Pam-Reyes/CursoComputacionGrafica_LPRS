@@ -106,39 +106,39 @@ int main()
 	GLfloat vertices[] = {
 		// Posiciones           // Colores          // coordenadas uv
 
-		// CARA FRONTAL (1 Ojo - Centro de la cruz)
+		// CARA FRONTAL (1 Ojo)
 		-0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.5f,
 		 0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.5f,
 		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.67f,
 		-0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.67f,
 
-		// CARA TRASERA (5 Ojos - Abajo del todo)
+		// CARA TRASERA (5 Ojos)
 		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.005f,
 		 0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.005f,
 		 0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.2f,
 		-0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.2f,
 
-		// CARA IZQUIERDA (6 Ojos - Izquierda)
+		// CARA IZQUIERDA (6 Ojos)
 		-0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.095f, 0.505f,
 		-0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.505f,
 		-0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.7f,
 		-0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.095f, 0.7f,
 
-		// CARA DERECHA (2 Ojos - Derecha)
+		// CARA DERECHA (2 Ojos)
 		 0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.505f,
 		 0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.905f, 0.505f,
 		 0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.905f, 0.7f,
 		 0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.7f,
 
-		 // CARA SUPERIOR (4 Ojos - Arriba del centro)
+		 // CARA SUPERIOR (4 Ojos)
 		 -0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.7f,
 		  0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.7f,
 		  0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.895f,
 		 -0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.895f,
 
-		 // CARA INFERIOR (3 Ojos - Abajo del centro)
-		 -0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.310f,
-		  0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.310f,
+		 // CARA INFERIOR (3 Ojos)
+		 -0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.5f,
+		  0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.5f,
 		  0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.635f, 0.7f,
 		 -0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.365f, 0.7f
 	};
@@ -289,6 +289,7 @@ void DoMovement()
 	{
 		camera.ProcessKeyboard(RIGHT, deltaTime);
 	}
+
 }
 
 // Is called whenever a key is pressed/released via GLFW
