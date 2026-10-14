@@ -1,9 +1,24 @@
-﻿  Practica8_modoDiaNoche.cpp
-C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica8_modoDiaNoche.cpp(291,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica8_modoDiaNoche.cpp(845,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica8_modoDiaNoche.cpp(846,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica8_modoDiaNoche.cpp(852,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica8_modoDiaNoche.cpp(855,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica8_modoDiaNoche.cpp(859,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica8_modoDiaNoche.cpp(860,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+﻿  fuentesDeLuz.cpp
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(193,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(232,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(232,20): warning C4244:         with
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(232,20): warning C4244:         [
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(232,20): warning C4244:             T=float
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(232,20): warning C4244:         ]
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(233,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(233,20): warning C4244:         with
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(233,20): warning C4244:         [
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(233,20): warning C4244:             T=float
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(233,20): warning C4244:         ]
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(234,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(234,20): warning C4244:         with
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(234,20): warning C4244:         [
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(234,20): warning C4244:             T=float
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(234,20): warning C4244:         ]
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(465,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(466,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(470,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(471,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(473,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\fuentesDeLuz.cpp(474,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
   ConfigInicial.vcxproj -> C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\ConfigInicial.exe
