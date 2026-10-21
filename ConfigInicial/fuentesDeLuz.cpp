@@ -129,7 +129,7 @@ int main()
 {
     glfwInit();
 
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Previo9 Pamela Reyes", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Practica9 Pamela Reyes", nullptr, nullptr);
 
     if (window == nullptr)
     {
