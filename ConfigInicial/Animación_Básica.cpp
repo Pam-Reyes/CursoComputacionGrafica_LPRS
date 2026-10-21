@@ -106,7 +106,9 @@ float vertices[] = {
 glm::vec3 Light1 = glm::vec3(0);
 //Anim
 float rotBall = 0;
+float posBall = 1.5f;
 bool AnimBall = false;
+bool ballDown = true;
 
 
 // Deltatime
@@ -300,9 +302,9 @@ int main()
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 1);
-		model = glm::rotate(model, glm::radians(rotBall), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, posBall, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-	    Ball.Draw(lightingShader); 
+		Ball.Draw(lightingShader);
 		glDisable(GL_BLEND);  //Desactiva el canal alfa 
 		glBindVertexArray(0);
 	
@@ -450,15 +452,32 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 void Animation() {
 	if (AnimBall)
 	{
-		rotBall += 0.2f;
-		//printf("%f", rotBall);
+		if (ballDown)
+		{
+			posBall -= 0.002f;
+
+			if (posBall <= 0.0f)
+			{
+				posBall = 0.0f;
+				ballDown = false;
+			}
+		}
+		else
+		{
+			posBall += 0.002f;
+
+			if (posBall >= 1.5f)
+			{
+				posBall = 1.5f;
+				ballDown = true;
+			}
+		}
 	}
 	else
 	{
 		//rotBall = 0.0f;
 	}
 }
-
 void MouseCallback(GLFWwindow *window, double xPos, double yPos)
 {
 	if (firstMouse)
