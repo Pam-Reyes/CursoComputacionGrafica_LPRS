@@ -109,9 +109,15 @@ float rotBall = 0;
 float posBall = 1.2f;
 bool AnimBall = false;
 bool ballDown = true;
-//Agregando para animacino de perro jugando
+
+//Agregando para animación de perro jugando
 float angDog = 0.0f;
-bool AnimDog = false;
+float angBall = 3.1416f;
+bool ballHit = false;
+float fase = 0.0f;
+bool esperandoEncuentro = true;
+
+float alturaNariz = 0.5f;
 
 
 // Deltatime
@@ -309,16 +315,13 @@ int main()
 		Dog.Draw(lightingShader);
 
 		model = glm::mat4(1);
-		glEnable(GL_BLEND);//Avtiva la funcionalidad para trabajar el canal alfa
+		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 1);
-		model = glm::translate(model, glm::vec3(0.0f, posBall, 0.0f));
+		model = glm::translate(model, glm::vec3(2.5f * cos(angBall),posBall,2.5f * sin(angBall)));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		Ball.Draw(lightingShader);
-		glDisable(GL_BLEND);  //Desactiva el canal alfa 
-		glBindVertexArray(0);
-
+		glDisable(GL_BLEND);
 
 		// Also draw the lamp object, again binding the appropriate shader
 		lampShader.Use();
@@ -460,12 +463,53 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 	}
 }
+
 void Animation() {
-	//de  momento para solo hacer que el perro corra
 	if (AnimBall)
 	{
-		angDog += 0.003f;
+		angDog += 0.002f;
+		angBall -= 0.002f;
+
+		float dogX = 2.5f * cos(angDog);
+		float dogZ = 2.5f * sin(angDog);
+
+		float ballX = 2.5f * cos(angBall);
+		float ballZ = 2.5f * sin(angBall);
+
+		float distancia = sqrt(
+			pow(dogX - ballX, 2) +
+			pow(dogZ - ballZ, 2)
+		);
+
+		if (distancia < 0.05f && esperandoEncuentro)
+		{
+			ballHit = true;
+			esperandoEncuentro = false;
+			fase = 0.0f;
+		}
+
+		if (ballHit)
+		{
+			fase += 0.01f;
+
+			posBall = 1.5f -
+				(1.5f - alturaNariz) * sin(fase);
+
+			if (fase >= 3.1416f)
+			{
+				fase = 0.0f;
+				posBall = 1.5f;
+				ballHit = false;
+			}
+		}
+
+		if (distancia > 0.5f)
+		{
+			esperandoEncuentro = true;
+		}
 	}
+}
+
 	//if (AnimBall)
 	//{
 	//	if (ballDown)
@@ -493,7 +537,7 @@ void Animation() {
 	//{
 	//	//rotBall = 0.0f;
 	//}
-}
+
 void MouseCallback(GLFWwindow* window, double xPos, double yPos)
 {
 	if (firstMouse)
