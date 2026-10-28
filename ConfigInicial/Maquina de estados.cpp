@@ -522,27 +522,33 @@ void Animation() {
 		rotDog -= 0.6f;
 		//printf("%f", rotBall);
 	}
-	if (dogAnim == 1) { //Walk Animation
-		if (!step) {//state1
-			RLegs += 0.3f;
-			FLegs += 0.3f;
-			head += 0.3f;
-			tail += 0.3f;
+	if (dogAnim == 1) { // Walk Animation
+
+		if (!step) {
+			RLegs += 0.1f;
+			FLegs += 0.1f;
+			head += 0.1f;
+			tail += 0.1f;
+
 			if (RLegs > 15.0f)
 				step = true;
-	
-	}
-	else {
-		RLegs -= 0.3f;
-		FLegs -= 0.3f;
-		head -= 0.3f;
-		tail -= 0.3f;
-		if (RLegs < -15.0f)
-			step = false;
-	}
-	dogPos.z += 0.001;
+		}
+		else {
+			RLegs -= 0.1f;
+			FLegs -= 0.1f;
+			head -= 0.1f;
+			tail -= 0.1f;
 
-}
+			if (RLegs < -15.0f)
+				step = false;
+		}
+
+		// Movimiento del perro
+		if (dogPos.z < 2.2f)
+			dogPos.z += 0.0008f;
+		else
+			dogAnim = 0;
+	}
 }
 	
 void MouseCallback(GLFWwindow *window, double xPos, double yPos)
