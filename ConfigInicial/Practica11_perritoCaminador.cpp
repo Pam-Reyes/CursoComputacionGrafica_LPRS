@@ -609,7 +609,7 @@ void Animation() {
 	}
 
 	//// =====================================================
-	//// ESTADO 4: VULEVE CABEZA A MIRAR AL FRENTE
+	//// ESTADO 4: VULEVE CABEZA A MIRAR AL FRENTE  ESTA MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL, REVISAR NOTA EN WA
 	//// ===================================================== 
 
 	//if (dogAnim == 4) { // Regresar la cabeza a su posición original
