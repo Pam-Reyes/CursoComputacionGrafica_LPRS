@@ -504,6 +504,11 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		AnimBall = !AnimBall;
 		
 	}
+	if (keys[GLFW_KEY_B]) //pasa al estado de perro caminando
+	{
+		dogAnim = 1;
+
+	}
 	
 }
 void Animation() {
@@ -513,15 +518,33 @@ void Animation() {
 		//printf("%f", rotBall);
 	}
 	
-	if (AnimDog)
-	{
+	if (AnimDog) {
 		rotDog -= 0.6f;
 		//printf("%f", rotBall);
 	}
+	if (dogAnim == 1) { //Walk Animation
+		if (!step) {//state1
+			RLegs += 0.3f;
+			FLegs += 0.3f;
+			head += 0.3f;
+			tail += 0.3f;
+			if (RLegs > 15.0f)
+				step = true;
 	
-	
-}
+	}
+	else {
+		RLegs -= 0.3f;
+		FLegs -= 0.3f;
+		head -= 0.3f;
+		tail -= 0.3f;
+		if (RLegs < -15.0f)
+			step = false;
+	}
+	dogPos.z += 0.001;
 
+}
+}
+	
 void MouseCallback(GLFWwindow *window, double xPos, double yPos)
 {
 	if (firstMouse)
