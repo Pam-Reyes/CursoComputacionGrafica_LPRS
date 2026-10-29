@@ -1,1 +1,27 @@
-﻿  ConfigInicial.vcxproj -> C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\ConfigInicial.exe
+﻿  Practica11_perritoCaminador.cpp
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(216,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(256,21): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(256,21): warning C4244:         with
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(256,21): warning C4244:         [
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(256,21): warning C4244:             T=float
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(256,21): warning C4244:         ]
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(257,21): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(257,21): warning C4244:         with
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(257,21): warning C4244:         [
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(257,21): warning C4244:             T=float
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(257,21): warning C4244:         ]
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(258,21): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(258,21): warning C4244:         with
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(258,21): warning C4244:         [
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(258,21): warning C4244:             T=float
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(258,21): warning C4244:         ]
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(703,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(704,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(708,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(709,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(711,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(712,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+soil2-debug.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_DXT.obj)' o en 'C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil2-debug.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_helper.obj)' o en 'C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil2-debug.lib(SOIL2.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(SOIL2.obj)' o en 'C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  ConfigInicial.vcxproj -> C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\ConfigInicial.exe

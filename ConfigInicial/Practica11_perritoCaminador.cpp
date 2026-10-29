@@ -117,7 +117,7 @@ float tail = 0.0f;
 glm::vec3 dogPos(0.0f, 0.0f, 0.0f);
 float dogRot = 0.0f;
 bool step = false;
-float headTurn = 0.0f; //movimiento de la cabeza para cambiar de dirección
+
 
 
 // Deltatime
@@ -315,11 +315,19 @@ int main()
 		modelTemp = model = glm::rotate(model, glm::radians(dogRot), glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		DogBody.Draw(lightingShader);
-		//Head
+		// Head
 		model = modelTemp;
 		model = glm::translate(model, glm::vec3(0.0f, 0.093f, 0.208f));
-		model = glm::rotate(model, glm::radians(head), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(headTurn), glm::vec3(0.0f, 1.0f, 0.0f));
+		if (dogAnim == 2 || dogAnim == 3 || dogAnim == 4) {
+			// Durante el giro, la cabeza gira horizontalmente
+			model = glm::rotate(model, glm::radians(head),
+				glm::vec3(0.0f, 1.0f, 0.0f));
+		}
+		else {
+			// Durante la caminata normal, conserva su movimiento original
+			model = glm::rotate(model, glm::radians(head),
+				glm::vec3(0.0f, 0.0f, 1.0f));
+		}
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		HeadDog.Draw(lightingShader);
 		//Tail 
@@ -512,6 +520,7 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 	}
 
 }
+
 void Animation() {
 
 	if (AnimBall)
@@ -523,13 +532,15 @@ void Animation() {
 		rotDog -= 0.6f;
 	}
 
+
 	// =====================================================
 	// ESTADO 1: CAMINAR DE E HACIA A
 	// =====================================================
 	if (dogAnim == 1) {
 
-		// Movimiento de las patas, cabeza y cola
+		// Movimiento normal del perro
 		if (!step) {
+
 			RLegs += 0.1f;
 			FLegs += 0.1f;
 			head += 0.1f;
@@ -539,6 +550,7 @@ void Animation() {
 				step = true;
 		}
 		else {
+
 			RLegs -= 0.1f;
 			FLegs -= 0.1f;
 			head -= 0.1f;
@@ -548,43 +560,50 @@ void Animation() {
 				step = false;
 		}
 
-		// Movimiento de E hacia A
+		// E -> A
 		if (dogPos.z < 2.2f) {
+
 			dogPos.z += 0.0008f;
 		}
 		else {
+
+			// Llegó a A
 			dogAnim = 2;
 		}
 	}
 
 
-	// =====================================================
-	// ESTADO 2: EL PERRO VOLTEA LA CABEZA
-	// =====================================================
+	// ESTADO 2: el perro mira hacia B antes de girar
 	if (dogAnim == 2) {
 
-		// La cabeza gira poco a poco hacia la izquierda
-		if (headTurn < 35.0f) {
-			headTurn += 0.5f;
+		// Las patas se quedan quietas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// La cola también se queda quieta
+		tail = 0.0f;
+
+		// La cabeza gira lentamente hacia B
+		if (head > -35.0f) {
+			head -= 0.15f;
 		}
 		else {
-			headTurn = 35.0f;
+			head = -35.0f;
 			dogAnim = 3;
 		}
 	}
 
 
-	// =====================================================
-	// ESTADO 3: GIRO DEL CUERPO DE 90 GRADOS
-	// =====================================================
-	if (dogAnim == 3) { // Giro de 90 grados a la izquierda
+	// ESTADO 3: gira el cuerpo hacia B
+	if (dogAnim == 3) {
 
-		// Las patas siguen con el mismo movimiento de caminar
+		// La cabeza mantiene la mirada hacia B
+		head = -35.0f;
+
+		// Movimiento natural de las patas mientras gira
 		if (!step) {
 			RLegs += 0.1f;
 			FLegs += 0.1f;
-			head += 0.1f;
-			tail += 0.1f;
 
 			if (RLegs > 15.0f)
 				step = true;
@@ -592,14 +611,15 @@ void Animation() {
 		else {
 			RLegs -= 0.1f;
 			FLegs -= 0.1f;
-			head -= 0.1f;
-			tail -= 0.1f;
 
 			if (RLegs < -15.0f)
 				step = false;
 		}
 
-		// El cuerpo gira poco a poco
+		// Movimiento ligero de la cola
+		tail += 0.05f;
+
+		// Giro del cuerpo
 		dogRot += 0.5f;
 
 		if (dogRot >= 90.0f) {
@@ -608,27 +628,34 @@ void Animation() {
 		}
 	}
 
-	//// =====================================================
-	//// ESTADO 4: VULEVE CABEZA A MIRAR AL FRENTE  ESTA MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL, REVISAR NOTA EN WA
-	//// ===================================================== 
 
-	//if (dogAnim == 4) { // Regresar la cabeza a su posición original
-
-	//	if (headTurn > 0.0f) {
-	//		headTurn -= 0.5f;
-	//	}
-	//	else {
-	//		headTurn = 0.0f;
-	//		dogAnim = 5;
-	//	}
-	//}
-	// =====================================================
-	// ESTADO 4: CAMINAR DE A HACIA B
-	// =====================================================
+	// ESTADO 4: la cabeza se acomoda hacia B
 	if (dogAnim == 4) {
 
-		// Movimiento de las patas, cabeza y cola
+		// Primero detenemos las patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+		tail = 0.0f;
+
+		// La cabeza regresa lentamente al frente
+		if (head < 0.0f) {
+			head += 0.15f;
+		}
+		else {
+			head = 0.0f;
+			dogAnim = 5;
+		}
+	}
+
+
+	// =====================================================
+	// ESTADO 5: CAMINAR DE A HACIA B
+	// =====================================================
+	if (dogAnim == 5) {
+
+		// Caminata normal
 		if (!step) {
+
 			RLegs += 0.1f;
 			FLegs += 0.1f;
 			head += 0.1f;
@@ -638,6 +665,7 @@ void Animation() {
 				step = true;
 		}
 		else {
+
 			RLegs -= 0.1f;
 			FLegs -= 0.1f;
 			head -= 0.1f;
@@ -647,12 +675,27 @@ void Animation() {
 				step = false;
 		}
 
-		// Movimiento de A hacia B
+		// A -> B
 		if (dogPos.x < 2.2f) {
+
 			dogPos.x += 0.0008f;
+		}
+		else {
+
+			// Llegó a B: detener completamente la animación
+			dogPos.x = 2.2f;
+
+			dogAnim = 0;
+
+			// Dejar las partes del cuerpo quietas
+			RLegs = 0.0f;
+			FLegs = 0.0f;
+			head = 0.0f;
+			tail = 0.0f;
 		}
 	}
 }
+
 void MouseCallback(GLFWwindow* window, double xPos, double yPos)
 {
 	if (firstMouse)
