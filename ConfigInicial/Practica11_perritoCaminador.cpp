@@ -735,6 +735,517 @@ void Animation() {
 			head = 0.0f;
 			tail = 0.0f;
 
+			//Para comenzar giro hacia punto C
+			dogAnim = 6;
+		}
+	}
+	// =====================================================
+// ESTADO 6: GIRAR LA CABEZA HACIA C
+// =====================================================
+	if (dogAnim == 6) {
+
+		// Cuerpo
+		dogRot = 90.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza gira lentamente hacia C
+		if (head < 35.0f) {
+
+			head += 0.1f;
+
+		}
+		else {
+
+			head = 35.0f;
+
+			// Comienza el giro del cuerpo
+			dogAnim = 7;
+		}
+	}
+	// =====================================================
+// ESTADO 7: GIRAR EL CUERPO HACIA C
+// =====================================================
+	if (dogAnim == 7) {
+
+		// La cabeza permanece mirando hacia C
+		head = 35.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// Girar desde 90° hasta 135°
+		if (dogRot < 225.0f) {
+
+			dogRot += 0.3f;
+
+		}
+		else {
+
+			dogRot = 225.0f;
+
+			dogAnim = 8;
+		}
+	}
+	// =====================================================
+// ESTADO 8: REGRESAR LA CABEZA AL FRENTE
+// =====================================================
+	if (dogAnim == 8) {
+
+		// Cuerpo
+		dogRot = 225.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza regresa lentamente
+		if (head > 0.0f) {
+
+			head -= 0.1f;
+
+		}
+		else {
+
+			head = 0.0f;
+
+			// Comienza el recorrido de B hacia C
+			dogAnim = 9;
+		}
+	}
+	// =====================================================
+// ESTADO 9: CAMINAR EN DIAGONAL DE B HACIA C
+// =====================================================
+	if (dogAnim == 9) {
+
+		// Cuerpo mantiene la dirección hacia C
+		dogRot = 225.0f;
+
+		// Movimiento de patas, cabeza y cola
+		if (!step) {
+
+			RLegs += 0.1f;
+			FLegs += 0.1f;
+			head += 0.1f;
+			tail += 0.1f;
+
+			if (RLegs > 15.0f) {
+				step = true;
+			}
+
+		}
+		else {
+
+			RLegs -= 0.1f;
+			FLegs -= 0.1f;
+			head -= 0.1f;
+			tail -= 0.1f;
+
+			if (RLegs < -15.0f) {
+				step = false;
+			}
+		}
+
+		// Movimiento diagonal B -> C
+		dogPos.x -= 0.0008f;
+		dogPos.z -= 0.0008f;
+
+		// Llegada a C
+		if (dogPos.x <= -2.2f && dogPos.z <= -2.2f) {
+
+			dogPos.x = -2.2f;
+			dogPos.z = -2.2f;
+
+			// Detener todas las partes
+			RLegs = 0.0f;
+			FLegs = 0.0f;
+			head = 0.0f;
+			tail = 0.0f;
+
+			// Comenzar giro hacia D
+			dogAnim = 10;
+		}
+	}
+	// =====================================================
+// ESTADO 10: GIRAR LA CABEZA HACIA D
+// =====================================================
+	if (dogAnim == 10) {
+
+		// El cuerpo permanece quieto
+		dogRot = 225.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza gira hacia D
+		if (head > -35.0f) {
+
+			head -= 0.1f;
+
+		}
+		else {
+
+			head = -35.0f;
+
+			// Comienza el giro del cuerpo
+			dogAnim = 11;
+		}
+	}
+	// =====================================================
+	// ESTADO 11: GIRAR EL CUERPO HACIA D
+	// =====================================================
+	if (dogAnim == 11) {
+
+		// La cabeza permanece mirando hacia D
+		head = -35.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// El cuerpo gira poco a poco hacia D
+		if (dogRot > 90.0f) {
+
+			dogRot -= 0.3f;
+
+		}
+		else {
+
+			dogRot = 90.0f;
+
+			// Comienza a regresar la cabeza
+			dogAnim = 12;
+		}
+	}
+	// =====================================================
+	// ESTADO 12: REGRESAR LA CABEZA AL FRENTE
+	// =====================================================
+	if (dogAnim == 12) {
+
+		// Cuerpo mantiene la dirección hacia D
+		dogRot = 90.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza regresa lentamente
+		if (head < 0.0f) {
+
+			head += 0.1f;
+
+		}
+		else {
+
+			head = 0.0f;
+
+			// Comienza el recorrido de C hacia D
+			dogAnim = 13;
+		}
+	}
+	// =====================================================
+// ESTADO 13: CAMINAR DE C HACIA D
+// =====================================================
+	if (dogAnim == 13) {
+
+		// Cuerpo mantiene la dirección hacia D
+		dogRot = 90.0f;
+
+		// Movimiento de patas, cabeza y cola
+		if (!step) {
+
+			RLegs += 0.1f;
+			FLegs += 0.1f;
+			head += 0.1f;
+			tail += 0.1f;
+
+			if (RLegs > 15.0f) {
+				step = true;
+			}
+
+		}
+		else {
+
+			RLegs -= 0.1f;
+			FLegs -= 0.1f;
+			head -= 0.1f;
+			tail -= 0.1f;
+
+			if (RLegs < -15.0f) {
+				step = false;
+			}
+		}
+
+		// Movimiento C -> D
+		if (dogPos.x < 2.2f) {
+
+			dogPos.x += 0.0008f;
+
+		}
+		else {
+
+			dogPos.x = 2.2f;
+			dogPos.z = -2.2f;
+
+			// Detener todas las partes
+			RLegs = 0.0f;
+			FLegs = 0.0f;
+			head = 0.0f;
+			tail = 0.0f;
+
+			// Comenzar giro hacia E
+			dogAnim = 14;
+		}
+	}
+	// =====================================================
+	// ESTADO 14: GIRAR LA CABEZA HACIA E
+	// =====================================================
+	if (dogAnim == 14) {
+
+		// Cuerpo permanece en la dirección de D
+		dogRot = 90.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza gira lentamente hacia E
+		if (head < 35.0f) {
+
+			head += 0.1f;
+
+		}
+		else {
+
+			head = 35.0f;
+
+			// Comienza el giro del cuerpo
+			dogAnim = 15;
+		}
+	}
+	// =====================================================
+	// ESTADO 15: GIRAR EL CUERPO HACIA E
+	// =====================================================
+	if (dogAnim == 15) {
+
+		// La cabeza permanece mirando hacia E
+		head = 35.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// El cuerpo gira lentamente hacia E
+		if (dogRot > -45.0f) {
+
+			dogRot -= 0.3f;
+
+		}
+		else {
+
+			dogRot = -45.0f;
+
+			// Regresar la cabeza
+			dogAnim = 16;
+		}
+	}
+	// =====================================================
+	// ESTADO 16: REGRESAR LA CABEZA AL FRENTE
+	// =====================================================
+	if (dogAnim == 16) {
+
+		// Cuerpo mantiene la dirección hacia E
+		dogRot = -45.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza regresa lentamente
+		if (head > 0.0f) {
+
+			head -= 0.1f;
+
+		}
+		else {
+
+			head = 0.0f;
+
+			// Comenzar recorrido hacia E
+			dogAnim = 17;
+		}
+	}
+	// =====================================================
+	// ESTADO 17: CAMINAR DE D HACIA E
+	// =====================================================
+	if (dogAnim == 17) {
+
+		// Cuerpo mantiene la dirección hacia E
+		dogRot = -45.0f;
+
+		// Movimiento de patas, cabeza y cola
+		if (!step) {
+
+			RLegs += 0.1f;
+			FLegs += 0.1f;
+			head += 0.1f;
+			tail += 0.1f;
+
+			if (RLegs > 15.0f) {
+				step = true;
+			}
+
+		}
+		else {
+
+			RLegs -= 0.1f;
+			FLegs -= 0.1f;
+			head -= 0.1f;
+			tail -= 0.1f;
+
+			if (RLegs < -15.0f) {
+				step = false;
+			}
+		}
+
+		// Movimiento diagonal D -> E
+		if (dogPos.x > 0.0f) {
+
+			dogPos.x -= 0.0008f;
+			dogPos.z += 0.0008f;
+
+		}
+		else {
+
+			dogPos.x = 0.0f;
+			dogPos.z = 0.0f;
+
+			RLegs = 0.0f;
+			FLegs = 0.0f;
+			head = 0.0f;
+			tail = 0.0f;
+
+			step = false;
+
+			// Comienza el giro final hacia la posición inicial
+			dogAnim = 18;
+		}
+	}
+	// =====================================================
+// ESTADO 18: GIRAR LA CABEZA HACIA LA POSICIÓN INICIAL
+// =====================================================
+	if (dogAnim == 18) {
+
+		// El cuerpo permanece en su orientación actual
+		dogRot = -45.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza gira lentamente hacia el frente
+		if (head < 35.0f) {
+
+			head += 0.1f;
+
+		}
+		else {
+
+			head = 35.0f;
+
+			// Comienza el giro final del cuerpo
+			dogAnim = 19;
+		}
+	}
+	// =====================================================
+// ESTADO 19: GIRAR EL CUERPO HACIA LA POSICIÓN INICIAL
+// =====================================================
+	if (dogAnim == 19) {
+
+		// La cabeza permanece mirando hacia el frente
+		head = 35.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// El cuerpo gira poco a poco
+		if (dogRot < 0.0f) {
+
+			dogRot += 0.3f;
+
+		}
+		else {
+
+			dogRot = 0.0f;
+
+			// Regresar la cabeza
+			dogAnim = 20;
+		}
+	}
+	// =====================================================
+// ESTADO 20: REGRESAR LA CABEZA
+// =====================================================
+	if (dogAnim == 20) {
+
+		// Cuerpo ya está en su orientación inicial
+		dogRot = 0.0f;
+
+		// Patas
+		RLegs = 0.0f;
+		FLegs = 0.0f;
+
+		// Cola
+		tail = 0.0f;
+
+		// La cabeza regresa lentamente
+		if (head > 0.0f) {
+
+			head -= 0.1f;
+
+		}
+		else {
+
+			head = 0.0f;
+
+			// El recorrido completo terminó
 			dogAnim = 0;
 		}
 	}
