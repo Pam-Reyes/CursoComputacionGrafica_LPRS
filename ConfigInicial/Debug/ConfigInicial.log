@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿  Practica11_perritoCaminador.cpp
 C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(214,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
 C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\Practica11_perritoCaminador.cpp(254,21): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
@@ -26,4 +27,34 @@ soil2-debug.lib(etc1_utils.obj) : warning LNK4099: no se encontró PDB 'soil2-de
 soil2-debug.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_DXT.obj)' o en 'C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 soil2-debug.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_helper.obj)' o en 'C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 soil2-debug.lib(SOIL2.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(SOIL2.obj)' o en 'C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+=======
+﻿  KeyFrames.cpp
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(292,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(332,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(332,20): warning C4244:         with
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(332,20): warning C4244:         [
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(332,20): warning C4244:             T=float
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(332,20): warning C4244:         ]
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(333,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(333,20): warning C4244:         with
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(333,20): warning C4244:         [
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(333,20): warning C4244:             T=float
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(333,20): warning C4244:         ]
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(334,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(334,20): warning C4244:         with
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(334,20): warning C4244:         [
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(334,20): warning C4244:             T=float
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(334,20): warning C4244:         ]
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(262,18): warning C4101: 'EBO': variable local sin referencia
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(506,14): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(511,14): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(516,14): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(521,14): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(689,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(690,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(694,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(695,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(697,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(698,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+>>>>>>> Stashed changes
   ConfigInicial.vcxproj -> C:\Users\Pamela Sanz\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\ConfigInicial.exe
