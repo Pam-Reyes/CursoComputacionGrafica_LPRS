@@ -1,1 +1,25 @@
-﻿  ConfigInicial.vcxproj -> C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\ConfigInicial.exe
+﻿  KeyFrames.cpp
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(364,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(402,27): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(402,27): warning C4244:         with
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(402,27): warning C4244:         [
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(402,27): warning C4244:             T=float
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(402,27): warning C4244:         ]
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(403,27): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(403,27): warning C4244:         with
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(403,27): warning C4244:         [
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(403,27): warning C4244:             T=float
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(403,27): warning C4244:         ]
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(404,27): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(404,27): warning C4244:         with
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(404,27): warning C4244:         [
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(404,27): warning C4244:             T=float
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(404,27): warning C4244:         ]
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(334,22): warning C4101: 'EBO': variable local sin referencia
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(755,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(756,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(760,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(761,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(763,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\ConfigInicial\KeyFrames.cpp(764,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  ConfigInicial.vcxproj -> C:\Users\pamel\Documents\GitHub\CursoComputacionGrafica_LPRS\Debug\ConfigInicial.exe
