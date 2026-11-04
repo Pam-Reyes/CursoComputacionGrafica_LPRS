@@ -46,11 +46,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <ClCompile Include="Practica11_perritoCaminador.cpp">
-=======
-    <ClCompile Include="KeyFrames.cpp">
->>>>>>> Stashed changes
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

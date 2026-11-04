@@ -31,11 +31,7 @@
     <None Include="Shader\modelLoading.vs" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <ClCompile Include="Practica11_perritoCaminador.cpp" />
-=======
-    <ClCompile Include="KeyFrames.cpp" />
->>>>>>> Stashed changes
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
