@@ -2,7 +2,6 @@
 //Reyes Sánchez Laura Pamela
 //Fecha de entrega: 7 de noviembre de 2026
 //No. de cuenta: 318083593
-
 #include <iostream>
 #include <cmath>
 #include <GL/glew.h>
@@ -100,9 +99,12 @@ float tail = 0.0f;
 // Variables para sentar al perro
 float bodyY = 0.0f;
 float bodyRot = 0.0f;
+float bodySideRot = 0.0f;
 
-// Estado de la postura: Z para sentarse y X para levantarse
+// Estados de postura: Z para sentarse, X para levantarse,
+// P para acostarse de lado y O para levantarse.
 bool sitting = false;
+bool lying = false;
 
 float dogPosX = 0.0f;
 float dogPosY = 0.0f;
@@ -150,7 +152,11 @@ typedef struct _frame {
     float bodyRot;
     float bodyRotInc;
 
+    float bodySideRot;
+    float bodySideRotInc;
+
     bool sitting;
+    bool lying;
 
 } FRAME;
 
@@ -181,7 +187,9 @@ void saveFrame(void)
 
     KeyFrame[FrameIndex].bodyY = bodyY;
     KeyFrame[FrameIndex].bodyRot = bodyRot;
+    KeyFrame[FrameIndex].bodySideRot = bodySideRot;
     KeyFrame[FrameIndex].sitting = sitting;
+    KeyFrame[FrameIndex].lying = lying;
 
     FrameIndex++;
 }
@@ -205,7 +213,9 @@ void resetElements(void)
 
     bodyY = KeyFrame[0].bodyY;
     bodyRot = KeyFrame[0].bodyRot;
+    bodySideRot = KeyFrame[0].bodySideRot;
     sitting = KeyFrame[0].sitting;
+    lying = KeyFrame[0].lying;
 }
 
 void interpolation(void)
@@ -242,6 +252,9 @@ void interpolation(void)
 
     KeyFrame[playIndex].bodyRotInc =
         (KeyFrame[playIndex + 1].bodyRot - KeyFrame[playIndex].bodyRot) / i_max_steps;
+
+    KeyFrame[playIndex].bodySideRotInc =
+        (KeyFrame[playIndex + 1].bodySideRot - KeyFrame[playIndex].bodySideRot) / i_max_steps;
 
     KeyFrame[playIndex].rotDogInc =
         (KeyFrame[playIndex + 1].rotDog - KeyFrame[playIndex].rotDog) / i_max_steps;
@@ -335,7 +348,10 @@ int main()
 
         KeyFrame[i].bodyRot = 0;
         KeyFrame[i].bodyRotInc = 0;
+        KeyFrame[i].bodySideRot = 0;
+        KeyFrame[i].bodySideRotInc = 0;
         KeyFrame[i].sitting = false;
+        KeyFrame[i].lying = false;
     }
 
     GLuint VBO, VAO, EBO;
@@ -495,6 +511,8 @@ int main()
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.15f));
         model = glm::rotate(model, glm::radians(bodyRot), glm::vec3(1.0f, 0.0f, 0.0f));
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.15f));
+        // Giro lateral gradual para acostar al perro sobre un costado.
+        model = glm::rotate(model, glm::radians(bodySideRot), glm::vec3(0.0f, 0.0f, 1.0f));
 
         glm::mat4 bodyTemp = model;
 
@@ -626,23 +644,37 @@ void DoMovement()
     if (keys[GLFW_KEY_M]) tail += 0.25f;
     if (keys[GLFW_KEY_COMMA]) tail -= 0.25f;
 
-    // Transicion gradual para sentarse o levantarse.
+    // Transicion gradual para sentarse, levantarse o acostarse de lado.
     // Durante la reproduccion, los keyframes controlan estos movimientos.
     if (!play)
     {
-        float targetBodyY = sitting ? -0.025f : 0.0f;
+        // Al acostarse, el cuerpo baja hasta acercarse al piso,
+        // gira de lado y las cuatro patas se doblan.
+        float targetBodyY = lying ? -0.18f : (sitting ? -0.025f : 0.0f);
         float targetBodyRot = sitting ? -22.0f : 0.0f;
+        float targetBodySideRot = lying ? 75.0f : 0.0f;
 
-        float targetBackLeft = sitting ? -65.0f : 0.0f;
-        float targetBackRight = sitting ? 65.0f : 0.0f;
+        float targetFrontLeft = lying ? 35.0f : 0.0f;
+        float targetFrontRight = lying ? -35.0f : 0.0f;
+        float targetBackLeft = lying ? -45.0f : (sitting ? -65.0f : 0.0f);
+        float targetBackRight = lying ? 45.0f : (sitting ? 65.0f : 0.0f);
 
-        bodyY += (targetBodyY - bodyY) * 0.025f;
-        bodyRot += (targetBodyRot - bodyRot) * 0.025f;
-        backLeftLeg += (targetBackLeft - backLeftLeg) * 0.025f;
-        backRightLeg += (targetBackRight - backRightLeg) * 0.025f;
+        // Factor menor para que el cambio de postura sea mas lento y suave.
+        float smooth = 0.012f;
+
+        bodyY += (targetBodyY - bodyY) * smooth;
+        bodyRot += (targetBodyRot - bodyRot) * smooth;
+        bodySideRot += (targetBodySideRot - bodySideRot) * smooth;
+        frontLeftLeg += (targetFrontLeft - frontLeftLeg) * smooth;
+        frontRightLeg += (targetFrontRight - frontRightLeg) * smooth;
+        backLeftLeg += (targetBackLeft - backLeftLeg) * smooth;
+        backRightLeg += (targetBackRight - backRightLeg) * smooth;
 
         if (fabs(targetBodyY - bodyY) < 0.0005f) bodyY = targetBodyY;
         if (fabs(targetBodyRot - bodyRot) < 0.05f) bodyRot = targetBodyRot;
+        if (fabs(targetBodySideRot - bodySideRot) < 0.05f) bodySideRot = targetBodySideRot;
+        if (fabs(targetFrontLeft - frontLeftLeg) < 0.05f) frontLeftLeg = targetFrontLeft;
+        if (fabs(targetFrontRight - frontRightLeg) < 0.05f) frontRightLeg = targetFrontRight;
         if (fabs(targetBackLeft - backLeftLeg) < 0.05f) backLeftLeg = targetBackLeft;
         if (fabs(targetBackRight - backRightLeg) < 0.05f) backRightLeg = targetBackRight;
     }
@@ -693,10 +725,28 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
     // Cambiar la postura del perro con dos teclas
     if (key == GLFW_KEY_Z && action == GLFW_PRESS)
-        sitting = true;   // Sentarse
+    {
+        sitting = true;
+        lying = false;
+    }
 
     if (key == GLFW_KEY_X && action == GLFW_PRESS)
-        sitting = false;  // Levantarse
+    {
+        sitting = false;
+        lying = false;
+    }
+
+    if (key == GLFW_KEY_P && action == GLFW_PRESS)
+    {
+        sitting = false;
+        lying = true;
+    }
+
+    if (key == GLFW_KEY_O && action == GLFW_PRESS)
+    {
+        sitting = false;
+        lying = false;
+    }
 
     // Guardar keyframe
     if (key == GLFW_KEY_K && action == GLFW_PRESS)
@@ -742,12 +792,16 @@ void Animation()
             playIndex++;
 
             if (playIndex < FrameIndex)
+            {
                 sitting = KeyFrame[playIndex].sitting;
+                lying = KeyFrame[playIndex].lying;
+            }
 
             if (playIndex > FrameIndex - 2)
             {
                 printf("termina anim\n");
                 sitting = KeyFrame[FrameIndex - 1].sitting;
+                lying = KeyFrame[FrameIndex - 1].lying;
                 playIndex = 0;
                 play = false;
             }
@@ -775,6 +829,7 @@ void Animation()
 
             bodyY += KeyFrame[playIndex].bodyYInc;
             bodyRot += KeyFrame[playIndex].bodyRotInc;
+            bodySideRot += KeyFrame[playIndex].bodySideRotInc;
 
             rotDog += KeyFrame[playIndex].rotDogInc;
 
