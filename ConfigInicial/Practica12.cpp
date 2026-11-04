@@ -3,6 +3,9 @@
 //Fecha de entrega: 7 de noviembre de 2026
 //No. de cuenta: 318083593
 #include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <string>
 #include <cmath>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -218,6 +221,115 @@ void resetElements(void)
     lying = KeyFrame[0].lying;
 }
 
+// Guarda todos los KeyFrames en un archivo de texto.
+void saveAnimation(void)
+{
+    std::ofstream archivo("animacion_perro.txt");
+
+    if (!archivo.is_open())
+    {
+        std::cout << "No se pudo guardar el archivo de animacion." << std::endl;
+        return;
+    }
+
+    // Encabezado: identificador, version y cantidad de KeyFrames.
+    archivo << "DOG_ANIMATION 1 " << FrameIndex << "\n";
+    archivo << std::setprecision(9);
+
+    for (int i = 0; i < FrameIndex; i++)
+    {
+        archivo << KeyFrame[i].dogPosX << " "
+            << KeyFrame[i].dogPosY << " "
+            << KeyFrame[i].dogPosZ << " "
+            << KeyFrame[i].rotDog << " "
+            << KeyFrame[i].head << " "
+            << KeyFrame[i].frontLeftLeg << " "
+            << KeyFrame[i].frontRightLeg << " "
+            << KeyFrame[i].backLeftLeg << " "
+            << KeyFrame[i].backRightLeg << " "
+            << KeyFrame[i].tail << " "
+            << KeyFrame[i].bodyY << " "
+            << KeyFrame[i].bodyRot << " "
+            << KeyFrame[i].bodySideRot << " "
+            << (KeyFrame[i].sitting ? 1 : 0) << " "
+            << (KeyFrame[i].lying ? 1 : 0) << "\n";
+    }
+
+    archivo.close();
+    std::cout << "Animacion guardada en animacion_perro.txt" << std::endl;
+}
+
+// Carga los KeyFrames guardados en el archivo de texto.
+bool loadAnimation(void)
+{
+    std::ifstream archivo("animacion_perro.txt");
+
+    if (!archivo.is_open())
+    {
+        std::cout << "No se encontro animacion_perro.txt. Se iniciara sin una animacion guardada." << std::endl;
+        return false;
+    }
+
+    std::string identificador;
+    int version = 0;
+    int cantidad = 0;
+
+    if (!(archivo >> identificador >> version >> cantidad) ||
+        identificador != "DOG_ANIMATION" || version != 1 ||
+        cantidad < 0 || cantidad > MAX_FRAMES)
+    {
+        std::cout << "El archivo de animacion no tiene un formato valido." << std::endl;
+        return false;
+    }
+
+    // Primero se leen los datos en un arreglo temporal para evitar
+    // reemplazar la animacion actual si el archivo esta incompleto.
+    FRAME framesCargados[MAX_FRAMES] = {};
+
+    for (int i = 0; i < cantidad; i++)
+    {
+        int estadoSentado = 0;
+        int estadoAcostado = 0;
+
+        if (!(archivo >> framesCargados[i].dogPosX
+            >> framesCargados[i].dogPosY
+            >> framesCargados[i].dogPosZ
+            >> framesCargados[i].rotDog
+            >> framesCargados[i].head
+            >> framesCargados[i].frontLeftLeg
+            >> framesCargados[i].frontRightLeg
+            >> framesCargados[i].backLeftLeg
+            >> framesCargados[i].backRightLeg
+            >> framesCargados[i].tail
+            >> framesCargados[i].bodyY
+            >> framesCargados[i].bodyRot
+            >> framesCargados[i].bodySideRot
+            >> estadoSentado
+            >> estadoAcostado))
+        {
+            std::cout << "El archivo de animacion esta incompleto." << std::endl;
+            return false;
+        }
+
+        framesCargados[i].sitting = (estadoSentado != 0);
+        framesCargados[i].lying = (estadoAcostado != 0);
+    }
+
+    for (int i = 0; i < cantidad; i++)
+        KeyFrame[i] = framesCargados[i];
+
+    FrameIndex = cantidad;
+    play = false;
+    playIndex = 0;
+    i_curr_steps = 0;
+
+    if (FrameIndex > 0)
+        resetElements();
+
+    std::cout << "Se cargaron " << FrameIndex << " KeyFrames." << std::endl;
+    return true;
+}
+
 void interpolation(void)
 {
     KeyFrame[playIndex].incX =
@@ -353,6 +465,9 @@ int main()
         KeyFrame[i].sitting = false;
         KeyFrame[i].lying = false;
     }
+
+    // Cargar automaticamente la animacion guardada, si existe.
+    loadAnimation();
 
     GLuint VBO, VAO, EBO;
 
@@ -766,6 +881,17 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
             interpolation();
             play = true;
         }
+    }
+
+    // Guardar o cargar la animacion completa en un archivo.
+    if (key == GLFW_KEY_F5 && action == GLFW_PRESS)
+    {
+        saveAnimation();
+    }
+
+    if (key == GLFW_KEY_F6 && action == GLFW_PRESS)
+    {
+        loadAnimation();
     }
 
     // Encender o apagar luz
